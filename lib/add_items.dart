@@ -4,7 +4,8 @@ import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class AddItems extends StatefulWidget {
   final Items items;
-  const AddItems({Key key, this.items, String title}) : super(key: key);
+  const AddItems({Key key, this.items, String title, String type})
+      : super(key: key);
 
   @override
   _AddItemsState createState() => _AddItemsState();
@@ -24,7 +25,7 @@ class _AddItemsState extends State<AddItems> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GradientAppBar(
-        title: Text("บันทึกรายรับรายจ่าย"),
+        title: Text(widget.items.type),
         backgroundColorStart: Color(0xff7ECFBC),
         backgroundColorEnd: Colors.pink[100],
       ),
@@ -33,37 +34,34 @@ class _AddItemsState extends State<AddItems> {
           Container(
             height: 50,
             padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "ชื่อรายการ : ",
-                      style: TextStyle(fontSize: 18),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      widget.items.title,
-                      style: TextStyle(fontSize: 18),
-                    )
-                  ],
-                )
-              ],
+            child: InkWell(
+              child: Column(
+                children: [
+                  Text(
+                    "หมวดหมู่ : ${widget.items.title}",
+                    style: TextStyle(fontSize: 18),
+                  )
+                ],
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddList()),
+                );
+              },
             ),
           ),
           Container(
-              height: 50,
-              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'ยอดเงินรวม',
-                ),
-              )),
+            height: 50,
+            padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'ยอดเงินรวม',
+              ),
+            ),
+          ),
           Container(
             height: 50,
             padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
@@ -78,16 +76,28 @@ class _AddItemsState extends State<AddItems> {
             ),
           ),
           Container(
-              height: 60,
-              color: Color(0xff7ECFBC),
-              child: FlatButton(
-                onPressed: () {
-                  /*...*/
-                },
-                child: Text(
-                  "บันทึก",
-                ),
-              )),
+            height: 150,
+            padding: EdgeInsets.fromLTRB(8, 0, 8, 8),
+            child: TextField(
+              maxLines: 5,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'รายละเอียด',
+              ),
+            ),
+          ),
+          Container(
+            height: 60,
+            color: Color(0xff7ECFBC),
+            child: FlatButton(
+              onPressed: () {
+                /*...*/
+              },
+              child: Text(
+                "บันทึก",
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'add_items.dart';
 import 'add_list.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
-  
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -81,6 +81,41 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xff7ECFBC),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        onTap: (value) {
+          if (value == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      AddItems(items: Items("เงินเดือน", "รายรับ"))),
+            );
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      AddItems(items: Items("อาหารและเครื่องดื่ม", "รายจ่าย"))),
+            );
+          }
+        },
+        items: [
+          BottomNavigationBarItem(
+            label:'รายรับ',
+            icon: Icon(Icons.add),
+          ),
+          BottomNavigationBarItem(
+            label: 'รายจ่าย',
+            icon: Icon(Icons.remove),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Add your onPressed code here!
@@ -92,6 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
