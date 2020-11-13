@@ -68,9 +68,12 @@ class _IncomePageState extends State<IncomePage> {
             leading: Icon(Icons.monetization_on),
             title: Text('เงินเดือน'),
             onTap: () {
-              Navigator.pop(
+              Navigator.push(
                 context,
-                AddItems(items: Items(incomelist[0], type)),
+                MaterialPageRoute(
+                  builder: (context) =>
+                      AddItems(items: Items(incomelist[0], type)),
+                ),
               );
             },
           ),

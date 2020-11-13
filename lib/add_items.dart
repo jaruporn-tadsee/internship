@@ -32,9 +32,8 @@ class _AddItemsState extends State<AddItems> {
       body: ListView(
         children: <Widget>[
           Container(
-            height: 50,
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: InkWell(
+            padding: EdgeInsets.all(8),
+            child: FlatButton(
               child: Column(
                 children: [
                   Text(
@@ -43,7 +42,7 @@ class _AddItemsState extends State<AddItems> {
                   )
                 ],
               ),
-              onTap: () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AddList()),
