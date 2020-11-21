@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'add_items.dart';
 import 'add_list.dart';
+import 'expend_list.dart';
+import 'income_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -62,7 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xff7ECFBC),
               child: FlatButton(
                 onPressed: () {
-                  /*...*/
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Expendlist()),
+                  );
                 },
                 child: Text(
                   "รวมรายจ่าย",
@@ -73,7 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xff7ECFBC),
               child: FlatButton(
                 onPressed: () {
-                  /*...*/
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Incomelist()),
+                  );
                 },
                 child: Text(
                   "รวมรายรับ",
@@ -107,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            label:'รายรับ',
+            label: 'รายรับ',
             icon: Icon(Icons.add),
           ),
           BottomNavigationBarItem(
