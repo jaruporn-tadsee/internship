@@ -9,8 +9,9 @@ class AddList extends StatefulWidget {
 
 class Items {
   final String title;
+  final String type;
 
-  Items(this.title);
+  Items(this.title, this.type);
 }
 
 class _AddListState extends State<AddList> {
@@ -53,9 +54,8 @@ class IncomePage extends StatefulWidget {
 }
 
 class _IncomePageState extends State<IncomePage> {
-  final icomeitems = [""];
-  final expenditems = [""];
-
+  var type = "รายรับ";
+  var incomelist = ["เงินเดือน", "เงินฝาก", "โบนัส", "ดอกเบี้ย"];
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -71,7 +71,8 @@ class _IncomePageState extends State<IncomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("เงินเดือน")),
+                  builder: (context) =>
+                      AddItems(items: Items(incomelist[0], type)),
                 ),
               );
             },
@@ -87,7 +88,8 @@ class _IncomePageState extends State<IncomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("เงินฝาก")),
+                  builder: (context) =>
+                      AddItems(items: Items("เงินฝาก", "รายรับ")),
                 ),
               );
             },
@@ -103,7 +105,8 @@ class _IncomePageState extends State<IncomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("โบนัส")),
+                  builder: (context) =>
+                      AddItems(items: Items("โบนัส", "รายรับ")),
                 ),
               );
             },
@@ -119,7 +122,8 @@ class _IncomePageState extends State<IncomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("ดอกเบี้ย")),
+                  builder: (context) =>
+                      AddItems(items: Items("ดอกเบี้ย", "รายรับ")),
                 ),
               );
             },
@@ -152,7 +156,8 @@ class _ExpendPageState extends State<ExpendPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("อาหารและเครื่องดื่ม")),
+                  builder: (context) =>
+                      AddItems(items: Items("อาหารและเครื่องดื่ม", "รายจ่าย")),
                 ),
               );
             },
@@ -162,97 +167,103 @@ class _ExpendPageState extends State<ExpendPage> {
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.shopping_cart_outlined),
-              title: Text('ช้อปปิ้ง'),
-              onTap: () {
+            leading: Icon(Icons.shopping_cart_outlined),
+            title: Text('ช้อปปิ้ง'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("ช้อปปิ้ง")),
+                  builder: (context) =>
+                      AddItems(items: Items("ช้อปปิ้ง", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
         Container(
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.train_rounded), 
-              title: Text('การเดินทาง'),
-              onTap: () {
+            leading: Icon(Icons.train_rounded),
+            title: Text('การเดินทาง'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("การเดินทาง")),
+                  builder: (context) =>
+                      AddItems(items: Items("การเดินทาง", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
         Container(
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.school_outlined), 
-              title: Text('การศึกษา'),
-              onTap: () {
+            leading: Icon(Icons.school_outlined),
+            title: Text('การศึกษา'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("การศึกษา")),
+                  builder: (context) =>
+                      AddItems(items: Items("การศึกษา", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
         Container(
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.trending_up), 
-              title: Text('การลงทุน'),
-              onTap: () {
+            leading: Icon(Icons.trending_up),
+            title: Text('การลงทุน'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("การลงทุน")),
+                  builder: (context) =>
+                      AddItems(items: Items("การลงทุน", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
         Container(
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.fitness_center), 
-              title: Text('สุขภาพ'),
-              onTap: () {
+            leading: Icon(Icons.fitness_center),
+            title: Text('สุขภาพ'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("สุขภาพ")),
+                  builder: (context) =>
+                      AddItems(items: Items("สุขภาพ", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
         Container(
           height: 50,
           color: Colors.amber[100],
           child: ListTile(
-              leading: Icon(Icons.monetization_on), 
-              title: Text('บิล'),
-              onTap: () {
+            leading: Icon(Icons.monetization_on),
+            title: Text('บิล'),
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddItems(items: Items("บิล")),
+                  builder: (context) =>
+                      AddItems(items: Items("บิล", "รายจ่าย")),
                 ),
               );
             },
-              ),
+          ),
         ),
       ],
     );
