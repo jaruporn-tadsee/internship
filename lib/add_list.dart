@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'add_items.dart';
 
 class AddList extends StatefulWidget {
@@ -21,7 +20,7 @@ class _AddListState extends State<AddList> {
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
-            appBar: GradientAppBar(
+            appBar: AppBar(
               title: Text('บันทึกรายรับรายจ่าย'),
               leading: IconButton(
                 onPressed: () {
@@ -35,8 +34,6 @@ class _AddListState extends State<AddList> {
                   Tab(text: 'รายจ่าย'),
                 ],
               ),
-              backgroundColorStart: Color(0xff3ba089),
-              backgroundColorEnd: Colors.pink[100],
             ),
             body: TabBarView(children: [
               IncomePage(),

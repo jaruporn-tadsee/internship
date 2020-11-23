@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:saving_app/add_list.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class AddItems extends StatefulWidget {
   final Items items;
@@ -24,10 +23,8 @@ class _AddItemsState extends State<AddItems> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GradientAppBar(
+      appBar: AppBar(
         title: Text(widget.items.type),
-        backgroundColorStart: Color(0xff7ECFBC),
-        backgroundColorEnd: Colors.pink[100],
       ),
       body: ListView(
         children: <Widget>[
@@ -89,7 +86,7 @@ class _AddItemsState extends State<AddItems> {
             height: 60,
             color: Color(0xff7ECFBC),
             child: FlatButton(
-              onPressed: ( ) {
+              onPressed: () {
                 /*...*/
               },
               child: Text(
