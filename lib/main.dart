@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
+
 import 'add_items.dart';
 import 'add_list.dart';
 import 'expend_list.dart';
@@ -29,10 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _value = 46253.0;
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GradientAppBar(
+      appBar: AppBar(
         title: Text('บันทึกรายรับรายจ่าย'),
-        backgroundColorStart: Color(0xff7ECFBC),
-        backgroundColorEnd: Colors.pink[100],
       ),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
