@@ -26,7 +26,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _value = 5215.0;
+  final _value = 46253.0;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GradientAppBar(
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xff7ECFBC),
               child: FlatButton(
                 onPressed: () {
-                   Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Incomelist()),
                   );
